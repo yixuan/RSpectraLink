@@ -9,3 +9,7 @@ example2 <- function() {
     cat("Eigenvalues calculated by rARPACK:\n")
     print(.Call('example2', m, PACKAGE = 'rARPACKLink'))
 }
+
+example3 <- function() {
+    print(.Call('example3', PACKAGE = 'rARPACKLink'))
+}
