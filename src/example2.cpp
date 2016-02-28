@@ -3,6 +3,8 @@
 #include <GenEigs.h>
 #include <RMatOp.h>
 
+using namespace Spectra;
+
 RcppExport SEXP example2(SEXP mat)
 {
     BEGIN_RCPP

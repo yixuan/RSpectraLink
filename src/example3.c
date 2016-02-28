@@ -1,6 +1,6 @@
 /* Third example: Using the C interface */
-/* See rARPACK/include/ArpackC.h */
-#include <ArpackC.h>
+/* See RSpectra/include/SpectraC.h */
+#include <SpectraC.h>
 #include <R.h>
 #include <Rdefines.h>
 #include <Rinternals.h>
@@ -19,16 +19,16 @@ SEXP example3()
 {
     int n = 10;   /* size of matrix */
     int k = 3;    /* number of eigenvalues */
-    arpack_opts opts = {0,      /* Largest magnitude */
-                        6,      /* ncv*/
-                        1e-10,  /* Precision */
-                        1000,   /* Maximum number of iterations */
-                        0       /* Do not return eigenvectors */ };
+    spectra_opts opts = {0,      /* Largest magnitude */
+                         6,      /* ncv*/
+                         1e-10,  /* Precision */
+                         1000,   /* Maximum number of iterations */
+                         0       /* Do not return eigenvectors */ };
     int nconv, niter, nops, info;
     SEXP evals = PROTECT(allocVector(REALSXP, k));
 
-    /* Obtain the function call from rARPACK package */
-    eigs_sym_c_funtype eigs_sym_fun = (eigs_sym_c_funtype) R_GetCCallable("rARPACK", "eigs_sym_c");
+    /* Obtain the function call from RSpectra package */
+    eigs_sym_c_funtype eigs_sym_fun = (eigs_sym_c_funtype) R_GetCCallable("RSpectra", "eigs_sym_c");
 
     eigs_sym_fun(my_matrix_op, n, k, &opts, NULL, &nconv, &niter, &nops,
                  REAL(evals), NULL, &info);

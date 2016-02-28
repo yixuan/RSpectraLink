@@ -1,4 +1,4 @@
 exportPattern("^[[:alpha:]]+")
 importFrom(Rcpp, evalCpp)
-import(rARPACK)
-useDynLib(rARPACKLink)
+import(RSpectra)
+useDynLib(RSpectraLink)

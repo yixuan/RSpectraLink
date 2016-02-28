@@ -1,15 +1,15 @@
-Package: rARPACKLink
+Package: RSpectraLink
 Type: Package
-Title: Linking To rARPACK
-Version: 0.1
-Date: 2015-08-18
+Title: Linking To RSpectra
+Version: 0.2
+Date: 2016-02-28
 Author: Yixuan Qiu
 Maintainer: Yixuan Qiu <yixuan.qiu@cos.name>
-Description: An example package to show how to link to the rARPACK package,
-             both in C++ and C.
-License: GPL (>= 2)
+Description: An example package to show how to link to the 'RSpectra' package,
+             both in C++ and in C.
+License: MPL (>= 2)
 LazyData: TRUE
 Imports:
-    Rcpp (>= 0.11.5), rARPACK
+    Rcpp (>= 0.11.5), RSpectra
 LinkingTo:
-    Rcpp, RcppEigen, rARPACK
+    Rcpp, RcppEigen, RSpectra

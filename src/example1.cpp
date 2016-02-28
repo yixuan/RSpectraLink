@@ -1,7 +1,9 @@
-// First example: Only use the basic ARPACK functionality
-// https://github.com/yixuan/arpack-eigen
+// First example: Only use the basic Spectra functionality
+// https://github.com/yixuan/spectra
 #include <RcppEigen.h>
 #include <SymEigs.h>
+
+using namespace Spectra;
 
 RcppExport SEXP example1()
 {
@@ -12,10 +14,10 @@ RcppExport SEXP example1()
     Eigen::MatrixXd M = A + A.transpose();
 
     // Construct matrix operation object using the wrapper class DenseGenMatProd
-    DenseGenMatProd<double> op(M);
+    DenseSymMatProd<double> op(M);
 
     // Construct eigen solver object, requesting the largest three eigenvalues
-    SymEigsSolver< double, LARGEST_ALGE, DenseGenMatProd<double> > eigs(&op, 3, 10);
+    SymEigsSolver< double, LARGEST_ALGE, DenseSymMatProd<double> > eigs(&op, 3, 10);
 
     // Initialize and compute
     eigs.init();
